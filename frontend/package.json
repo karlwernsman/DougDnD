@@ -1,0 +1,12 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "echo hello from frontend"
+  },
+  "license": "MIT"
+}
