@@ -4,9 +4,12 @@
   "private": true,
   "description": "",
   "scripts": {
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint --fix . && prettier --write .",
     "start:backend": "npm start --workspace backend",
     "start:frontend": "npm start --workspace frontend",
-    "start": "concurrently -c auto 'npm:start:*'"
+    "start": "concurrently -c auto 'npm:start:*'",
+    "prepare": "husky install"
   },
   "workspaces": [
     "backend",
@@ -15,6 +18,14 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.0",
+    "eslint-config-prettier": "^8.8.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
     "typescript": "^5.1.3"
+  },
+  "lint-staged": {
+    "*.{ts,js}": "eslint --fix",
+    "*": "prettier --write --ignore-unknown"
   }
 }
