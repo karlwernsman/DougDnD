@@ -1,0 +1,19 @@
+{
+  "name": "dougdnd",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "start:backend": "npm start --workspace backend",
+    "start:frontend": "npm start --workspace frontend",
+    "start": "concurrently -c auto 'npm:start:*'"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
