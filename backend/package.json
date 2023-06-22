@@ -6,6 +6,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "build": "tsc --noEmit",
     "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config --passWithNoTests",
     "test:watch": "npm run test -- --watch",
     "start": "node -r dotenv/config --loader @swc-node/register/esm server.ts",
