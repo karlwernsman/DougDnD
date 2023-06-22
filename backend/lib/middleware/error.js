@@ -1,10 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-module.exports = (err, req, res, next) => {
+export default (err, req, res) => {
   const status = err.status || 500;
 
   res.status(status);
 
-  if (process.env.NODE_ENV !== 'test') {
+  if (process.env.NODE_ENV !== "test") {
     console.error(err);
   }
 
