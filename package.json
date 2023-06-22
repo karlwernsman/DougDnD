@@ -4,12 +4,14 @@
   "private": true,
   "description": "",
   "scripts": {
+    "build": "npm run build --workspaces --if-present",
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint --fix . && prettier --write .",
+    "prepare": "husky install",
+    "start": "concurrently -c auto 'npm:start:*'",
     "start:backend": "npm start --workspace backend",
     "start:frontend": "npm start --workspace frontend",
-    "start": "concurrently -c auto 'npm:start:*'",
-    "prepare": "husky install"
+    "test": "npm run test --workspaces --if-present"
   },
   "workspaces": [
     "backend",
