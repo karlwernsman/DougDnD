@@ -3,14 +3,14 @@
     "ecmaVersion": "latest",
     "requireConfigFile": false
   },
-  "plugins": ["@babel"],
-  "parser": "@babel/eslint-parser",
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
   "env": {
     "es6": true,
     "node": true,
     "jest": true
   },
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "rules": {
     "no-console": ["warn", { "allow": ["info", "error"] }],
     "indent": [
