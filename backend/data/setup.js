@@ -1,12 +1,12 @@
-const fs = require('fs').promises;
+import fs from "fs/promises";
 
-module.exports = (pool) => {
+export default async (pool) => {
   return fs
-    .readFile(`${__dirname}/../sql/setup.sql`, { encoding: 'utf-8' })
+    .readFile(`${__dirname}/../sql/setup.sql`, { encoding: "utf-8" })
     .then((sql) => pool.query(sql))
     .then(() => {
-      if (process.env.NODE_ENV !== 'test') {
-        console.info('✅ Database setup complete!');
+      if (process.env.NODE_ENV !== "test") {
+        console.info("✅ Database setup complete!");
       }
     })
     .catch((error) => {
@@ -14,13 +14,13 @@ module.exports = (pool) => {
 
       if (dbNotFound) {
         const [err, db] = dbNotFound;
-        console.error('❌ Error: ' + err);
+        console.error("❌ Error: " + err);
         console.info(
           `Try running \`createdb -U postgres ${db}\` in your terminal`
         );
       } else {
         console.error(error);
-        console.error('❌ Error: ' + error.message);
+        console.error("❌ Error: " + error.message);
       }
     });
 };
